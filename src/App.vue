@@ -1,18 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Idea Box powered by Vue</h1>
+
+    <!--
+    <HelloWorld v-bind:msg="message"/>
+    <input v-model="message" type="text">
+    <button v-on:click="alertMesage">Alert!</button>
+    -->
+    <Idea/>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Idea from "@/components/Idea";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
+    Idea
+  },
+
 }
 </script>
 
