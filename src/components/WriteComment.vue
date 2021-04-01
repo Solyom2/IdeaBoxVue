@@ -1,9 +1,10 @@
 <template>
   <div>
     <form @submit.prevent="addComment">
-      <div>
+      <div class="form-group">
         <textarea placeholder="Write your comment here" rows="4" cols="55" v-model="newComment"/>
       </div>
+
       <button type="submit">Add comment</button>
       <button v-on:click="abortComment">Cancel</button>
     </form>

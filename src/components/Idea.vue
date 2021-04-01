@@ -6,24 +6,13 @@
       <div class="comment" v-for="comment in idea.comments" v-bind:key="comment">
         <p>{{comment.comment}}</p>
       </div>
+
+      <button v-on:click="removeIdea(idea)" v-if="!idea.edit">Delete idea</button>
       <button v-on:click="writeComment(idea)" v-if="!idea.edit">Write comment</button>
       <WriteComment v-if="idea.edit" :idea="idea"/>
     </div>
 
-    <div>
-      <form @submit.prevent="addIdea">
-        <div>
-          <label>Idea title:</label>
-          <input placeholder="Your idea title" v-model="formFields.ideaTitle">
-        </div>
-
-        <div>
-          <label>Idea description:</label>
-          <textarea placeholder="Your idea description" rows="4" cols="55" v-model="formFields.ideaDescription"/>
-        </div>
-        <button type="submit">Add idea</button>
-      </form>
-    </div>
+    <NewIdea/>
 
   </div>
 </template>
@@ -35,7 +24,7 @@ import NewIdea from "@/components/NewIdea";
 export default {
   name: "Idea",
   components: {
-    WriteComment
+    WriteComment, NewIdea
   },
   data() {
     return {
@@ -46,16 +35,14 @@ export default {
           ]},
         { name: "Watch football match", description: "Because I'm Atletico Madrid fan", edit: false, comments: []}
       ],
-      formFields: {}
     }
   },
   methods: {
-    addIdea: function () {
-      this.ideas.push({name: this.formFields.ideaTitle, description: this.formFields.ideaDescription, edit: false, comments: []})
-      this.formFields = {}
-    },
     writeComment: function (idea) {
       idea.edit = true;
+    },
+    removeIdea: function (idea) {
+      this.ideas = this.ideas.filter(i => i != idea)
     }
   }
 }

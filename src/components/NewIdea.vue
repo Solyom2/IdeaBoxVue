@@ -1,12 +1,12 @@
 <template>
   <div>
     <form @submit.prevent="addIdea">
-      <div>
+      <div class="form-group">
         <label>Idea title:</label>
         <input placeholder="Your idea title" v-model="formFields.ideaTitle">
       </div>
 
-      <div>
+      <div class="form-group">
         <label>Idea description:</label>
         <textarea placeholder="Your idea description" rows="4" cols="55" v-model="formFields.ideaDescription"/>
       </div>
@@ -17,7 +17,18 @@
 
 <script>
 export default {
-name: "NewIdea"
+  name: "NewIdea",
+  data() {
+    return {
+      formFields: {}
+    }
+  },
+  methods: {
+    addIdea: function () {
+      this.$parent.ideas.push({name: this.formFields.ideaTitle, description: this.formFields.ideaDescription, edit: false, comments: []})
+      this.formFields = {}
+    }
+  }
 }
 </script>
 
