@@ -7,11 +7,10 @@
       </div>
 
       <div class="form-group">
-        <label>Idea description:</label>
         <textarea placeholder="Your idea description" rows="4" cols="55" v-model="newDescription"/>
       </div>
-      <button type="submit">Modify idea</button>
-      <button v-on:click="abortModify">Cancel</button>
+      <button type="submit" class="btn-success mr-1">Modify idea</button>
+      <button v-on:click="abortModify" class="btn-danger mr-1">Cancel</button>
     </form>
   </div>
 </template>

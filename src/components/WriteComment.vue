@@ -5,8 +5,8 @@
         <textarea placeholder="Write your comment here" rows="4" cols="55" v-model="newComment"/>
       </div>
 
-      <button type="submit">Add comment</button>
-      <button v-on:click="abortComment">Cancel</button>
+      <button type="submit" class="btn-success mr-1">Add comment</button>
+      <button v-on:click="abortComment" class="btn-danger mr-1">Cancel</button>
     </form>
   </div>
 </template>

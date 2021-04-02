@@ -7,10 +7,9 @@
       </div>
 
       <div class="form-group">
-        <label>Idea description:</label>
         <textarea placeholder="Your idea description" rows="4" cols="55" v-model="formFields.ideaDescription"/>
       </div>
-      <button type="submit">Add idea</button>
+      <button type="submit" class="btn-success">Add idea</button>
     </form>
   </div>
 </template>
