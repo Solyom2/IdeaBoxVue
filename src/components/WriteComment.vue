@@ -28,7 +28,11 @@ export default {
       this.$props.idea.edit = false
     },
     addComment: function () {
-      this.$props.idea.comments.push({comment: this.newComment})
+      if(this.newComment === "" || this.newComment === null) {
+        window.alert("Comment field can't be empty")
+        return
+      }
+      this.$props.idea.comments.push({comment: this.newComment, date: new Date().toLocaleString()})
       this.newComment = ""
       this.$props.idea.edit = false
     }

@@ -31,6 +31,14 @@ export default {
   },
   methods: {
     modifyIdea: function () {
+      if(this.newName === "" || this.newName === null) {
+        window.alert("Idea title can't be empty")
+        return
+      }
+      else if(this.newDescription === "" || this.newDescription === null) {
+        window.alert("Idea description can't be empty")
+        return
+      }
       this.$props.idea.name = this.newName
       this.$props.idea.description = this.newDescription
       this.$props.idea.modify = false

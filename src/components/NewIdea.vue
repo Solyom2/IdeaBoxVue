@@ -3,7 +3,7 @@
     <form @submit.prevent="addIdea">
       <div class="form-group">
         <label>Idea title:</label>
-        <input placeholder="Your idea title" v-model="formFields.ideaTitle">
+        <input placeholder="Your idea title" v-model="formFields.ideaName">
       </div>
 
       <div class="form-group">
@@ -20,12 +20,24 @@ export default {
   name: "NewIdea",
   data() {
     return {
-      formFields: {}
+      formFields: {
+        ideaName: "",
+        ideaDescription: ""
+      }
     }
   },
   methods: {
     addIdea: function () {
-      this.$parent.ideas.push({name: this.formFields.ideaTitle, description: this.formFields.ideaDescription, edit: false, modify: false, comments: []})
+      if(this.formFields.ideaName === "" || this.formFields.ideaName === null) {
+        window.alert("Idea title can't be empty")
+        return
+      }
+      else if(this.formFields.ideaDescription === "" || this.formFields.ideaDescription === null) {
+        window.alert("Idea description can't be empty")
+        return
+      }
+      this.$parent.ideas.push({name: this.formFields.ideaName, description: this.formFields.ideaDescription, edit: false, modify: false,
+        date: new Date().toLocaleString(), comments: []})
       this.formFields = {}
     }
   }

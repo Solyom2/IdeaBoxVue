@@ -3,8 +3,10 @@
     <div v-for="idea in ideas" v-bind:key="idea.name">
       <div v-if="!idea.modify">
         <h3>{{idea.name}}</h3>
+        <p>{{idea.date}}</p>
         <div>{{idea.description}}</div>
         <div class="comment" v-for="comment in idea.comments" v-bind:key="comment">
+          <p>{{comment.date}}</p>
           <p>{{comment.comment}}</p>
         </div>
       </div>
@@ -36,11 +38,12 @@ export default {
   data() {
     return {
       ideas: [
-        { name: "Make a sandwich", description: "Because I'm hungry", edit: false, modify: false,
+        { name: "Make a sandwich", description: "Because I'm hungry", edit: false, modify: false, date: new Date().toLocaleString(),
           comments: [
-            {comment: "Good idea!"}
+            {comment: "Good idea!", date: new Date().toLocaleString()}
           ]},
-        { name: "Watch football match", description: "Because I'm Atletico Madrid fan", edit: false,  modify: false, comments: []}
+        { name: "Watch football match", description: "Because I'm Atletico Madrid fan", edit: false,  modify: false, date: new Date().toLocaleString(),
+          comments: []}
       ]
     }
   },
