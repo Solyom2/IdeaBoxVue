@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "IdeaComment",
+  name: "WriteComment",
   props: {
     idea: Object
   },

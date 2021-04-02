@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     addIdea: function () {
-      this.$parent.ideas.push({name: this.formFields.ideaTitle, description: this.formFields.ideaDescription, edit: false, comments: []})
+      this.$parent.ideas.push({name: this.formFields.ideaTitle, description: this.formFields.ideaDescription, edit: false, modify: false, comments: []})
       this.formFields = {}
     }
   }
