@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h1>Idea Box powered by Vue</h1>
+    <div class="navbar-text">
+      <h1>Idea Box powered by Vue</h1>
+    </div>
 
     <!--
     <HelloWorld v-bind:msg="message"/>
@@ -25,12 +27,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 20px;
-}
+
 </style>

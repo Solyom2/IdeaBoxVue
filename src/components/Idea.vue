@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <div class="mt-10" v-for="idea in ideas" v-bind:key="idea.name">
+  <div class="mb-5">
+    <div class="mt-10 mb-2 border-bottom border-success" v-for="idea in ideas" v-bind:key="idea.name">
       <div v-if="!idea.modify">
-        <h1>{{idea.name}}</h1>
-        <p>Created: {{idea.date}}</p>
-        <h3>Description</h3>
-        <p>{{idea.description}}</p>
 
-        <h4>Comments</h4>
-        <div v-for="comment in idea.comments" v-bind:key="comment">
+        <h1 class="font-weight-bold">{{idea.name}}</h1>
+        <p class="font-italic">Created: {{idea.date}}</p>
+        <h4 class="font-weight-bolder">Description</h4>
+        <p class="description">{{idea.description}}</p>
+
+        <h4 class="font-weight-bolder">Comments</h4>
+        <div class="comment" v-for="comment in idea.comments" v-bind:key="comment">
           <p class="font-italic mb-0">{{comment.date}}</p>
           <p>{{comment.comment}}</p>
         </div>
       </div>
 
-      <ModifyIdea v-if="idea.modify" :idea="idea"/>
+      <ModifyIdea class="mt-3" v-if="idea.modify" :idea="idea"/>
 
       <div class="mb-4">
         <button v-on:click="modifyIdea(idea)" v-if="!idea.edit && !idea.modify" class="btn-secondary mr-1">Modify idea</button>
@@ -22,7 +23,7 @@
         <button v-on:click="writeComment(idea)" v-if="!idea.edit && !idea.modify" class="mr-1">Write comment</button>
       </div>
 
-      <WriteComment v-if="idea.edit" :idea="idea"/>
+      <WriteComment class="mb-2" v-if="idea.edit" :idea="idea"/>
     </div>
 
     <NewIdea/>

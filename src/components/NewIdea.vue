@@ -2,7 +2,6 @@
   <div>
     <form @submit.prevent="addIdea">
       <div class="form-group">
-        <label>Idea title:</label>
         <input placeholder="Your idea title" v-model="formFields.ideaName">
       </div>
 
@@ -37,7 +36,8 @@ export default {
       }
       this.$parent.ideas.push({name: this.formFields.ideaName, description: this.formFields.ideaDescription, edit: false, modify: false,
         date: new Date().toLocaleString(), comments: []})
-      this.formFields = {}
+      this.formFields.ideaDescription = ""
+      this.formFields.ideaName = ""
     }
   }
 }

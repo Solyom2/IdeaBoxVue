@@ -2,7 +2,6 @@
   <div>
     <form @submit.prevent="modifyIdea">
       <div class="form-group">
-        <label>Idea title:</label>
         <input placeholder="Your idea title" v-model="newName">
       </div>
 
